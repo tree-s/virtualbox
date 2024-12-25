@@ -31,6 +31,8 @@
         ]
     },
     "bin": [
+        "VBoxAudioTest.exe",
+        "VBoxAutostartSvc.exe",
         "VBoxBalloonCtrl.exe",
         "VBoxBugReport.exe",
         "VBoxDTrace.exe",
@@ -42,7 +44,6 @@
         "VBoxNetNAT.exe",
         "VBoxSDS.exe",
         "VBoxSVC.exe",
-        "VBoxTestOGL.exe",
         "VBoxWebSrv.exe",
         "VirtualBox.exe",
         "VirtualBoxVM.exe"
