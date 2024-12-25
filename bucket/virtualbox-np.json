@@ -23,9 +23,10 @@
     "uninstaller": {
         "script": [
             "if (!(is_admin)) { error \"$app requires admin rights to $cmd\"; break }",
-            "Get-WmiObject -Query \"SELECT IdentifyingNumber FROM Win32_Product WHERE Name LIKE 'Oracle VM VirtualBox%'\"",
-            "if (!($id_array[2] -match '({[0-9A-F-]+})')) { error 'Could not find product ID'; break }",
-            "$id = $matches[1]",
+            "$id_array = Get-WmiObject -Query \"SELECT IdentifyingNumber FROM Win32_Product WHERE Name LIKE 'Oracle VM VirtualBox%'\"",
+            "if (-not $id_array) { Write-Error 'Could not find product ID'; break }",
+            "$id = $id_array.IdentifyingNumber",
+            "if (-not ($id -match '({[0-9A-F-]+})')) { Write-Error 'Could not find valid product ID'; break }",
             "Invoke-ExternalCommand msiexec -ArgumentList @('/x', \"$id\", '/qn', '/norestart') -RunAs | Out-Null"
         ]
     },
