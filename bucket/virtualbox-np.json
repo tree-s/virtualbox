@@ -23,7 +23,7 @@
     "uninstaller": {
         "script": [
             "if (!(is_admin)) { error \"$app requires admin rights to $cmd\"; break }",
-            "$id_array = Get-WmiObject -Query \"SELECT IdentifyingNumber FROM Win32_Product WHERE Name LIKE 'Oracle VM VirtualBox%'\"",
+            "$id_array = Get-WmiObject -Query \"SELECT IdentifyingNumber FROM Win32_Product WHERE Name LIKE 'Oracle VirtualBox%'\"",
             "if (-not $id_array) { Write-Error 'Could not find product ID'; break }",
             "$id = $id_array.IdentifyingNumber",
             "if (-not ($id -match '({[0-9A-F-]+})')) { Write-Error 'Could not find valid product ID'; break }",
