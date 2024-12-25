@@ -27,7 +27,7 @@
             "if (-not $id_array) { Write-Error 'Could not find product ID'; break }",
             "$id = $id_array.IdentifyingNumber",
             "if (-not ($id -match '({[0-9A-F-]+})')) { Write-Error 'Could not find valid product ID'; break }",
-            "Invoke-ExternalCommand msiexec -ArgumentList @('/x', \"$id\", '/qn', '/norestart') -RunAs | Out-Null"
+            "Start-Process msiexec.exe -ArgumentList \"/x\", \"$id\", \"/qn\", \"/norestart\" -Wait -NoNewWindow"
         ]
     },
     "bin": [
