@@ -38,7 +38,6 @@
         "VBoxDTrace.exe",
         "VBoxExtPackHelperApp.exe",
         "VBoxHeadless.exe",
-        "vbox-img.exe",
         "VBoxManage.exe",
         "VBoxNetDHCP.exe",
         "VBoxNetNAT.exe",
