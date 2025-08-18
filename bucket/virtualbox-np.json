@@ -31,7 +31,6 @@
         ]
     },
     "bin": [
-        "VBoxAudioTest.exe",
         "VBoxAutostartSvc.exe",
         "VBoxBalloonCtrl.exe",
         "VBoxBugReport.exe",
