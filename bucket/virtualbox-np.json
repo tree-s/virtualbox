@@ -18,7 +18,7 @@
     ],
     "installer": {
         "script": [
-            "$setup = Get-ChildItem \"$dir\\VirtualBox*_amd64.msi\" | Select-Object -First 1",
+            "$setup = Get-ChildItem \"$dir\\VirtualBox-*.msi\" | Select-Object -First 1",
             "if (-not $setup) { error \"MSI not found under $dir\"; break }",
             "$args = @('/i', \"$($setup.FullName)\", '/qn', '/norestart', '/log', \"$dir\\install-log.txt\", 'VBOX_INSTALLDESKTOPSHORTCUT=0', 'VBOX_INSTALLQUICKLAUNCHSHORTCUT=0', 'VBOX_START=0', 'VBOX_INSTALLSTARTMENUENTRIES=0')",
             "if (!$global) { $args += 'ALLUSERS=2', \"INSTALLDIR=`\"$dir`\"\" }",
